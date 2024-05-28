@@ -203,6 +203,7 @@
 		956B65072BF8FD86004C5945 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				950CA7042BFB90F4003DB470 /* Adapters */,
 				95EA834F2C05CB2900767B41 /* AppLevel */,
 				956B65082BF8FD96004C5945 /* DomainLevel */,
 			);
@@ -329,7 +330,6 @@
 			children = (
 				95B38FC72BF8F98300F51ACB /* PropertiesApp.swift */,
 				95A8B0632C035BAC00FF9E40 /* PropertiesAppRunOptions.swift */,
-				950CA7042BFB90F4003DB470 /* Adapters */,
 				956B65072BF8FD86004C5945 /* DataModel */,
 				956B65062BF8FD74004C5945 /* UI */,
 				95A8B0572C0255EC00FF9E40 /* Utils */,
