@@ -1,6 +1,9 @@
 # Properties
 iOS app displaying list of properties with detail view.
 
+![1](https://github.com/Eeyore741/Properties/assets/5173226/d4022d08-3bec-4e37-843a-ddbbe72fb3d2)
+![2](https://github.com/Eeyore741/Properties/assets/5173226/42cf8238-85f3-48e9-9693-1ac3bbe51afa)
+
 # Requirements 
 * Xcode 15.4
 * iOS >= 16.0
