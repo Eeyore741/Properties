@@ -10,6 +10,22 @@ import XCTest
 
 final class RemotePropertiesListViewModelTests: XCTestCase {
     
+    func testInit() {
+        let propertiesProvider = MockPropertiesProvider()
+        let imageProvider = MockImageProvider()
+        let placeholderImage = UIImage.demoPlaceholder
+        let errorImage = UIImage.demoError
+        
+        XCTAssertNoThrow(
+            RemotePropertiesListViewModel(
+                propertiesProvider: propertiesProvider,
+                imageProvider: imageProvider,
+                placeholderImage: placeholderImage,
+                errorImage: errorImage
+            )
+        )
+    }
+    
     func testInterface() {
         let propertiesProvider = MockPropertiesProvider()
         let imageProvider = MockImageProvider()
