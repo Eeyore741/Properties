@@ -22,6 +22,8 @@ Project build with `MVVM` architecture utilizing:
 Project provides `Demo` mode which utilizes bundeled resources (json) for `Demo run` purposes.
 Mode switch located in project Run action, as argument to toggle.
 
+![Screenshot 2024-05-29 at 23 34 16](https://github.com/Eeyore741/Properties/assets/5173226/1b712217-ea62-4255-aac8-ada2f9f35b3b)
+
 ## Previews
 View model protocol within app provided with `demo types` for preview (in different states), demo and possible snapshot testing.
 
