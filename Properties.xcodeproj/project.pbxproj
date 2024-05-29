@@ -269,8 +269,8 @@
 		95A8B0572C0255EC00FF9E40 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				95EA83422C054F7500767B41 /* RemoteResourceProvider */,
 				95A8B05C2C026E8500FF9E40 /* ImageProvider */,
+				95EA83422C054F7500767B41 /* RemoteResourceProvider */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
