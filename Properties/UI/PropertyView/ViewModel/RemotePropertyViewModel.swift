@@ -19,6 +19,16 @@ final class RemotePropertyViewModel {
     private let placeholderImage: UIImage
     private let errorImage: UIImage
     
+    private var fetchedImage: UIImage? {
+        didSet {
+            if let fetchedImage {
+                self.image = fetchedImage
+            } else {
+                self.image = self.errorImage
+            }
+        }
+    }
+    
     init(property: Property, placeholderImage: UIImage, errorImage: UIImage, imageProvider: ImageProvider) {
         self.property = property
         self.placeholderImage = placeholderImage
@@ -124,8 +134,9 @@ extension RemotePropertyViewModel: PropertyViewModel {
     
     @MainActor
     func fetchImage() async {
-        let image = await self.imageProvider.getImageWithURL(self.property.imageURL)
+        guard case .none = self.fetchedImage else { return }
         
-        self.image = image ?? self.errorImage
+        let image = await self.imageProvider.getImageWithURL(self.property.imageURL)
+        self.fetchedImage = image
     }
 }
