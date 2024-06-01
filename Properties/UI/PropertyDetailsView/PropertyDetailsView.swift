@@ -25,12 +25,12 @@ struct PropertyDetailsView<ViewModel>: View where ViewModel: PropertyDetailsView
                     }
             case .presenting:
                 ScrollView() {
-                    Image(uiImage: viewModel.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(maxWidth: .infinity, maxHeight: 500)
-                        .clipped()
                     VStack(alignment: .leading, spacing: 6) {
+                        Image(uiImage: viewModel.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxWidth: .infinity, maxHeight: 500)
+                            .clipped()
                         Text(viewModel.streetAddress)
                             .font(.largeTitle)
                             .fontWeight(.semibold)
