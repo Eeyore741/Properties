@@ -17,9 +17,11 @@ struct PlainPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
             Image(uiImage: viewModel.image)
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: 200)
-                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: .infinity, maxHeight: 400)
                 .clipped()
+                .task {
+                    await self.viewModel.fetchImage()
+                }
             Text(viewModel.streetAddress)
                 .font(.title3)
                 .fontWeight(.bold)
@@ -39,9 +41,6 @@ struct PlainPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
             .fontWeight(.bold)
         }
         .padding()
-        .task {
-            await self.viewModel.fetchImage()
-        }
     }
 }
 

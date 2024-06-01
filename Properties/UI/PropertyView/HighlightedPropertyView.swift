@@ -18,9 +18,11 @@ struct HighlightedPropertyView<ViewModel>: View where ViewModel: PropertyViewMod
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: 360)
-                .aspectRatio(contentMode: .fit)
                 .clipped()
                 .border(.yellow, width: 4)
+                .task {
+                    await self.viewModel.fetchImage()
+                }
             Text(viewModel.streetAddress)
                 .font(.title3)
                 .fontWeight(.bold)
@@ -40,9 +42,6 @@ struct HighlightedPropertyView<ViewModel>: View where ViewModel: PropertyViewMod
             .fontWeight(.bold)
         }
         .padding()
-        .task {
-            await self.viewModel.fetchImage()
-        }
     }
 }
 

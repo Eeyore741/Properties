@@ -14,15 +14,17 @@ struct AreaPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(viewModel.type.rawValue.capitalized)
-                .font(.title)
-                .fontWeight(.bold)
             Image(uiImage: viewModel.image)
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: 200)
-                .aspectRatio(contentMode: .fit)
                 .clipped()
+                .task {
+                    await self.viewModel.fetchImage()
+                }
+            Text(viewModel.type.rawValue.capitalized)
+                .font(.title)
+                .fontWeight(.bold)
             Text(viewModel.area)
                 .font(.callout)
                 .fontWeight(.bold)
@@ -32,15 +34,10 @@ struct AreaPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
                 .font(.subheadline)
         }
         .padding()
-        .task {
-            await self.viewModel.fetchImage()
-        }
     }
 }
-
 
 #Preview {
     let viewModel = DemoPropertyViewModel()
     return AreaPropertyView(viewModel: viewModel)
 }
-
