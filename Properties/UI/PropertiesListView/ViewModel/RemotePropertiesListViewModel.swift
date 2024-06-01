@@ -36,7 +36,7 @@ final class RemotePropertiesListViewModel: PropertiesListViewModel {
         switch result {
         case .success(let properties):
             items = properties.map {
-                RemotePropertyViewModel(
+                ItemViewModel(
                     property: $0,
                     placeholderImage: self.placeholderImage,
                     errorImage: self.errorImage,
@@ -50,13 +50,14 @@ final class RemotePropertiesListViewModel: PropertiesListViewModel {
     }
     
     func makeItemDetailViewModelForItem(_ itemViewModel: ItemViewModel) -> ItemDetailViewModel {
-        let viewModel = RemotePropertyDetailsViewModel(
+        let viewModel = ItemDetailViewModel(
             propertyID: itemViewModel.id,
             propertiesProvider: self.propertiesProvider,
             imageProvider: self.imageProvider,
             placeholderImage: self.placeholderImage,
             errorImage: self.errorImage
         )
+        
         return viewModel
     }
     

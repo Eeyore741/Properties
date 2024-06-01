@@ -28,7 +28,7 @@ final class RemotePropertyViewModel {
     }
 }
 
-// MARK: Private accessories
+// MARK: Private accessories.
 private extension RemotePropertyViewModel {
     
     static let currencyFormatter: NumberFormatter = {
@@ -60,7 +60,7 @@ private extension RemotePropertyViewModel {
     }()
 }
 
-// MARK: `PropertyViewModel` conformance
+// MARK: `PropertyViewModel` conformance.
 extension RemotePropertyViewModel: PropertyViewModel {
     
     var id: String { self.property.id }
@@ -73,8 +73,10 @@ extension RemotePropertyViewModel: PropertyViewModel {
         case .some(let numberOfRooms):
             let number = NSNumber(value: numberOfRooms)
             let formattedNumber = Self.roomsFormatter.string(from: number) ?? String()
+            
             return formattedNumber + " rooms"
         case .none:
+            
             return String()
         }
     }
@@ -83,8 +85,10 @@ extension RemotePropertyViewModel: PropertyViewModel {
         switch self.property.livingArea {
         case .some(let area):
             let measurement = Measurement(value: area, unit: UnitArea.squareMeters)
+            
             return Self.livingAreaFormatter.string(from: measurement)
         case .none:
+            
             return String()
         }
     }
@@ -92,23 +96,25 @@ extension RemotePropertyViewModel: PropertyViewModel {
     var municipalityArea: String {
         switch self.property.municipality {
         case .some(let municipality):
+            
             return "\(self.property.area), \(municipality)"
         case .none:
+            
             return self.property.area
         }
     }
     
     var askingPrice: String {
         guard let askingPrice = self.property.askingPrice else { return String() }
-        
         let number = NSNumber(value: askingPrice)
+        
         return Self.currencyFormatter.string(from: number) ?? String()
     }
     
     var averagePrice: String {
         guard let averagePrice = self.property.averagePrice else { return String() }
-        
         let number = NSNumber(value: averagePrice)
+        
         return "Average price: \(Self.currencyFormatter.string(from: number) ?? String())"
     }
     

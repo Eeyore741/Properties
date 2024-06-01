@@ -49,6 +49,7 @@ final class DemoPropertiesProvider {
         do {
             data = try Data(contentsOf: url)
         } catch {
+            
             return .failure(.resourceUnavailable)
         }
         
@@ -58,6 +59,7 @@ final class DemoPropertiesProvider {
             
             return .success(item)
         } catch {
+            
             return .failure(.decodingFailure)
         }
     }
@@ -84,7 +86,7 @@ extension DemoPropertiesProvider {
     }
 }
 
-/// MARK: `PropertiesProvider` conformance.
+// MARK: `PropertiesProvider` conformance.
 extension DemoPropertiesProvider: PropertiesProvider {
     
     func getList() async -> Result<[Property], PropertiesProviderError> {

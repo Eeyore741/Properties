@@ -45,7 +45,6 @@ struct PlainPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
     }
 }
 
-
 #Preview {
     let viewModel = DemoPropertyViewModel()
     return PlainPropertyView(viewModel: viewModel)

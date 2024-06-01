@@ -7,15 +7,15 @@
 
 import Foundation
 
-/// Type defines erorr cases of `RemoteResourceProvider`
+/// Type defines erorr cases of `RemoteResourceProvider`.
 enum RemoteResourceProviderError: Error {
     
-    /// Request got non http response
+    /// Request got non http response.
     case nonHttpResponse
     
-    /// Request encountered session error
+    /// Request encountered session error.
     case session(error: Error)
     
-    /// Request received failed response code
+    /// Request received failed response code.
     case response(code: Int)
 }

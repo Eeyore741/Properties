@@ -25,6 +25,7 @@ final class PastebinPropertiesProvider {
             let request = URLRequest(url: url)
             response = try await urlSession.data(for: request)
         } catch {
+            
             return .failure(PropertiesProviderError.remoteError)
         }
         
@@ -33,6 +34,7 @@ final class PastebinPropertiesProvider {
             let jsonDecoder = JSONDecoder()
             propertiesList = try jsonDecoder.decode(PastebinPropertyItemList.self, from: response.0)
         } catch {
+            
             return .failure(PropertiesProviderError.decodingFailure)
         }
         
@@ -47,12 +49,14 @@ final class PastebinPropertiesProvider {
             let request = URLRequest(url: url)
             response = try await urlSession.data(for: request)
         } catch {
+            
             return .failure(.remoteError)
         }
         var item: PastebinPropertyItem
         do {
             item = try JSONDecoder().decode(PastebinPropertyItem.self, from: response.0)
         } catch {
+            
             return .failure(.decodingFailure)
         }
         
@@ -60,7 +64,7 @@ final class PastebinPropertiesProvider {
     }
 }
 
-// MARK: Private accessories
+// MARK: Private accessories.
 private extension PastebinPropertiesProvider {
     
     static let listUrl = "https://pastebin.com/raw/nH5NinBi"
@@ -70,7 +74,7 @@ private extension PastebinPropertiesProvider {
     static let valiedPropertyID = "1234567890"
 }
 
-// MARK: `PropertiesProvider` conformance
+// MARK: `PropertiesProvider` conformance.
 extension PastebinPropertiesProvider: PropertiesProvider {
     
     func getList() async -> Result<[Property], PropertiesProviderError> {

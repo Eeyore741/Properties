@@ -34,7 +34,7 @@ final class RemotePropertyDetailsViewModel {
     }
 }
 
-// MARK: Private accessories
+// MARK: Private accessories.
 private extension RemotePropertyDetailsViewModel {
     
     static let currencyFormatter: NumberFormatter = {
@@ -77,7 +77,7 @@ private extension RemotePropertyDetailsViewModel {
     }
 }
 
-// MARK: `PropertyDetailsViewModel` conformance
+// MARK: `PropertyDetailsViewModel` conformance.
 extension RemotePropertyDetailsViewModel: PropertyDetailsViewModel {
     
     var streetAddress: String { self.property?.streetAddress ?? String() }

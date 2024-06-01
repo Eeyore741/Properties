@@ -14,7 +14,7 @@ class RemoteResourceProvider {
     private let session: URLSession
     
     init() {
-        self.cache = URLCache(memoryCapacity: 1024*1024*200, diskCapacity: 1024*1024*200)
+        self.cache = URLCache(memoryCapacity: 1_024*1_024*200, diskCapacity: 1_024*1_024*200)
         self.session = URLSession(configuration: URLSessionConfiguration.ephemeral)
     }
     
@@ -43,7 +43,7 @@ class RemoteResourceProvider {
     }
 }
 
-// MARK: Private accessories
+// MARK: Private accessories.
 private extension RemoteResourceProvider {
     
     func saveCachedResponse(_ response: URLResponse, withData data: Data, andRequest request: URLRequest) {

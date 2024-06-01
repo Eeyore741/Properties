@@ -58,15 +58,15 @@ protocol PropertyDetailsViewModel: ObservableObject {
     func fetchProperty() async
 }
 
-/// Type describes possible UI states for `PropertyDetailsViewModel`
+/// Type describes possible UI states for `PropertyDetailsViewModel`.
 enum PropertyDetailsViewModelState {
     
-    /// `Property` being displayed
+    /// `Property` being displayed.
     case presenting
     
-    /// `Property` being fetched
+    /// `Property` being fetched.
     case loading
     
-    /// `Property` fetch finished with error
+    /// `Property` fetch finished with error.
     case error
 }
