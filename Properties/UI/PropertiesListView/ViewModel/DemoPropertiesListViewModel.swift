@@ -35,7 +35,7 @@ final class DemoPropertiesListViewModel: PropertiesListViewModel {
             self.state = .presenting
         case .failure(_):
             items = []
-            self.state = .presenting
+            self.state = .error
         }
     }
     
