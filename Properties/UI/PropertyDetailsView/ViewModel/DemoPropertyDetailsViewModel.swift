@@ -43,17 +43,21 @@ final class DemoPropertyDetailsViewModel: PropertyDetailsViewModel {
     var localizedErrorMessage: String { "Loading error" }
     
     @MainActor
-    func fetchImage() async {
-        try? await Task.sleep(for: .seconds(2))
-        
-        self.image = UIImage.demoProperty
-    }
-    
-    @MainActor
     func fetchProperty() async {
         try? await Task.sleep(for: .seconds(2))
         
         self.state = .presenting
         await self.fetchImage()
+    }
+}
+
+// MARK: Private accessories.
+private extension DemoPropertyDetailsViewModel {
+    
+    @MainActor
+    func fetchImage() async {
+        try? await Task.sleep(for: .seconds(2))
+        
+        self.image = UIImage.demoProperty
     }
 }

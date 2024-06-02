@@ -14,7 +14,7 @@ class RemoteResourceProvider {
     private let session: URLSession
     
     init() {
-        self.cache = URLCache(memoryCapacity: 1_024*1_024*200, diskCapacity: 1_024*1_024*200)
+        self.cache = URLCache(memoryCapacity: 1_024*1_024*400, diskCapacity: 1_024*1_024*400)
         self.session = URLSession(configuration: URLSessionConfiguration.ephemeral)
     }
     
