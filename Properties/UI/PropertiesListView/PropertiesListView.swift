@@ -18,25 +18,15 @@ struct PropertiesListView<ViewModel>: View where ViewModel: PropertiesListViewMo
         case .presenting:
             NavigationStack {
                 List {
-                    ForEach(viewModel.items) { item in
-                        switch item.type {
-                        case .plain:
-                            PlainPropertyView(viewModel: item).background(
-                                NavigationLink(String(), destination: PropertyDetailsView(viewModel: self.viewModel.makeItemDetailViewModelForItem(item)))
-                                    .opacity(0)
+                    ForEach(viewModel.items) {
+                        self.makeViewWithItem($0)
+                            .background(
+                                NavigationLink(
+                                    $0.streetAddress,
+                                    destination: PropertyDetailsView(viewModel: self.viewModel.makeItemDetailViewModelForItem($0))
+                                )
+                                .opacity(0)
                             )
-                        case .highlighted:
-                            HighlightedPropertyView(viewModel: item).background(
-                                NavigationLink(String(), destination: PropertyDetailsView(viewModel: self.viewModel.makeItemDetailViewModelForItem(item)))
-                                    .opacity(0)
-                            )
-                        case .area:
-                            AreaPropertyView(viewModel: item).background(
-
-                                NavigationLink(String(), destination: PropertyDetailsView(viewModel: self.viewModel.makeItemDetailViewModelForItem(item)))
-                                    .opacity(0)
-                            )
-                        }
                     }
                 }
                 .listStyle(PlainListStyle())
@@ -50,6 +40,22 @@ struct PropertiesListView<ViewModel>: View where ViewModel: PropertiesListViewMo
                 }
         case .error:
             Text(self.viewModel.localizedErrorMessage)
+        }
+    }
+}
+
+// MARK: Private accessories.
+private extension PropertiesListView {
+    
+    @ViewBuilder
+    func makeViewWithItem(_ item: ViewModel.ItemViewModel) -> some View {
+        switch item.type {
+        case .plain:
+            PlainPropertyView(viewModel: item)
+        case .highlighted:
+            HighlightedPropertyView(viewModel: item)
+        case .area:
+            AreaPropertyView(viewModel: item)
         }
     }
 }
