@@ -13,8 +13,27 @@ final class DemoPropertiesProvider {
     var mode: DemoPropertiesProvider.Mode = .success
     
     var fetchTimeoutInSec: Double = 2
+}
+
+extension DemoPropertiesProvider {
     
-    func getLocalList() -> Result<[Property], PropertiesProviderError> {
+    /// Type wrapping possible `DemoPropertiesProvider` bahaviour cases.
+    enum Mode {
+        
+        /// Case of success result
+        case success
+        
+        /// Case of failure result.
+        case fail(PropertiesProviderError)
+    }
+}
+
+// MARK: `PropertiesProvider` conformance.
+extension DemoPropertiesProvider: PropertiesProvider {
+    
+    func getList() async -> Result<[Property], PropertiesProviderError> {
+        try? await Task.sleep(for: .seconds(self.fetchTimeoutInSec))
+        
         if case let .fail(error) = self.mode { return .failure(error) }
         
         guard let url = Bundle.main.url(forResource: "demoItemsList", withExtension: "json") else {
@@ -38,7 +57,9 @@ final class DemoPropertiesProvider {
         }
     }
     
-    func getLocalProperty() -> Result<Property, PropertiesProviderError> {
+    func getPropertyWithID(_ propertyID: String) async -> Result<Property, PropertiesProviderError> {
+        try? await Task.sleep(for: .seconds(self.fetchTimeoutInSec))
+        
         if case let .fail(error) = self.mode { return .failure(error) }
         
         guard let url = Bundle.main.url(forResource: "demoItemDetails", withExtension: "json") else {
@@ -62,42 +83,5 @@ final class DemoPropertiesProvider {
             
             return .failure(.decodingFailure)
         }
-    }
-    
-    func getLocalPropertyWithType(_ type: PropertyType) -> Property {
-        let result = self.getLocalList()
-        guard case let .success(list) = result,
-              let property = list.first(where: { $0.type == type }) else { fatalError("Local data missing property with type: \(type.rawValue)") }
-        
-        return property
-    }
-}
-
-extension DemoPropertiesProvider {
-    
-    /// Type wrapping possible `DemoPropertiesProvider` bahaviour cases.
-    enum Mode {
-        
-        /// Case of success result
-        case success
-        
-        /// Case of failure result.
-        case fail(PropertiesProviderError)
-    }
-}
-
-// MARK: `PropertiesProvider` conformance.
-extension DemoPropertiesProvider: PropertiesProvider {
-    
-    func getList() async -> Result<[Property], PropertiesProviderError> {
-        try? await Task.sleep(for: .seconds(self.fetchTimeoutInSec))
-        
-        return self.getLocalList()
-    }
-    
-    func getPropertyWithID(_ propertyID: String) async -> Result<Property, PropertiesProviderError> {
-        try? await Task.sleep(for: .seconds(self.fetchTimeoutInSec))
-        
-        return self.getLocalProperty()
     }
 }
