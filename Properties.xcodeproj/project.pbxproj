@@ -310,7 +310,6 @@
 			children = (
 				95B38FC62BF8F98300F51ACB /* Properties */,
 				95B38FD72BF8F98400F51ACB /* PropertiesTests */,
-				95B38FE12BF8F98400F51ACB /* PropertiesUITests */,
 				95B38FC52BF8F98300F51ACB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -320,7 +319,6 @@
 			children = (
 				95B38FC42BF8F98300F51ACB /* Properties.app */,
 				95B38FD42BF8F98400F51ACB /* PropertiesTests.xctest */,
-				95B38FDE2BF8F98400F51ACB /* PropertiesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,15 +356,6 @@
 				95EA834D2C05CABB00767B41 /* RemotePropertyDetailsViewModelTests.swift */,
 			);
 			path = PropertiesTests;
-			sourceTree = "<group>";
-		};
-		95B38FE12BF8F98400F51ACB /* PropertiesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				95B38FE22BF8F98400F51ACB /* PropertiesUITests.swift */,
-				95B38FE42BF8F98400F51ACB /* PropertiesUITestsLaunchTests.swift */,
-			);
-			path = PropertiesUITests;
 			sourceTree = "<group>";
 		};
 		95EA83422C054F7500767B41 /* RemoteResourceProvider */ = {
@@ -827,48 +816,6 @@
 			};
 			name = Release;
 		};
-		95B38FEF2BF8F98400F51ACB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitaliikuznetsov.PropertiesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_TARGET_NAME = Properties;
-			};
-			name = Debug;
-		};
-		95B38FF02BF8F98400F51ACB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitaliikuznetsov.PropertiesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_TARGET_NAME = Properties;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -895,15 +842,6 @@
 			buildConfigurations = (
 				95B38FEC2BF8F98400F51ACB /* Debug */,
 				95B38FED2BF8F98400F51ACB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		95B38FEE2BF8F98400F51ACB /* Build configuration list for PBXNativeTarget "PropertiesUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				95B38FEF2BF8F98400F51ACB /* Debug */,
-				95B38FF02BF8F98400F51ACB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
