@@ -494,6 +494,7 @@
 				956B65102BF910D1004C5945 /* demoItemsList.json in Resources */,
 				956B650F2BF910D1004C5945 /* demoItemDetails.json in Resources */,
 				95B38FCF2BF8F98400F51ACB /* PreviewAssets.xcassets in Resources */,
+				9553BC5B2C0CF7C90063B246 /* Localizable.xcstrings in Resources */,
 				95B38FCC2BF8F98400F51ACB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
