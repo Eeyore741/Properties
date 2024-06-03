@@ -12,7 +12,7 @@ final class DemoImageProvider: ImageProvider {
     
     var mode: DemoImageProvider.Mode
     
-    var fetchTimeoutInSec: Double = 1.5
+    var fetchTimeoutInSec: Double = 2
     
     init(mode: DemoImageProvider.Mode) {
         self.mode = mode
@@ -22,8 +22,10 @@ final class DemoImageProvider: ImageProvider {
         try? await Task.sleep(for: .seconds(self.fetchTimeoutInSec))
         
         switch self.mode {
-        case .success(let image):
+        case .successProvided(let image):
             return image
+        case .successBundled:
+            return UIImage(named: imageURL.lastPathComponent)
         case .failure:
             return nil
         }
@@ -36,7 +38,10 @@ extension DemoImageProvider {
     enum Mode {
         
         /// Successful result with associated `UIImage` value.
-        case success(UIImage)
+        case successProvided(UIImage)
+        
+        /// Successful result with associated name of bundled image.
+        case successBundled
         
         /// Failure result mode.
         case failure
