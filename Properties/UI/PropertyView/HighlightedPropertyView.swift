@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HighlightedPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
     
-    @ObservedObject
+    @StateObject
     var viewModel: ViewModel
     
     var body: some View {
@@ -47,6 +47,14 @@ struct HighlightedPropertyView<ViewModel>: View where ViewModel: PropertyViewMod
 
 
 #Preview {
-    let viewModel = DemoPropertyViewModel()
-    return HighlightedPropertyView(viewModel: viewModel)
+    List {
+        let viewModel = RemotePropertyViewModel(
+            property: DemoPropertiesProvider().getLocalPropertyWithType(.highlighted),
+            placeholderImage: .demoPlaceholder,
+            errorImage: .demoError,
+            imageProvider: DemoImageProvider(mode: .successBundled)
+        )
+        HighlightedPropertyView(viewModel: viewModel)
+    }
+    .listStyle(PlainListStyle())
 }

@@ -29,16 +29,16 @@ protocol PropertyViewModel: ObservableObject, Identifiable {
     var livingArea: String { get }
     
     /// Formatted number of rooms.
-    var rooms: String { get }
+    var rooms: LocalizedStringResource { get }
     
     /// Formatted street address.
     var streetAddress: String { get }
     
     /// Fromatted rating.
-    var ratingFormatted: String { get }
+    var ratingFormatted: LocalizedStringResource { get }
     
     /// Formatted average price.
-    var averagePrice: String { get }
+    var averagePrice: LocalizedStringResource { get }
     
     /// Property image.
     var image: UIImage { get }

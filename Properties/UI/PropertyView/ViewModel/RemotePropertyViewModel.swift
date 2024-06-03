@@ -60,14 +60,6 @@ private extension RemotePropertyViewModel {
         
         return formatter
     }()
-    
-    static let roomsFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 1
-        
-        return formatter
-    }()
 }
 
 // MARK: `PropertyViewModel` conformance.
@@ -78,16 +70,15 @@ extension RemotePropertyViewModel: PropertyViewModel {
     var area: String { self.property.area }
     var streetAddress: String { self.property.streetAddress ?? String() }
     
-    var rooms: String {
+    var rooms: LocalizedStringResource {
         switch self.property.numberOfRooms {
         case .some(let numberOfRooms):
             let number = NSNumber(value: numberOfRooms)
-            let formattedNumber = Self.roomsFormatter.string(from: number) ?? String()
             
-            return formattedNumber + " rooms"
+            return LocalizedStringResource("\(number.intValue) rooms")
         case .none:
             
-            return String()
+            return LocalizedStringResource(stringLiteral: String())
         }
     }
     
@@ -121,15 +112,16 @@ extension RemotePropertyViewModel: PropertyViewModel {
         return Self.currencyFormatter.string(from: number) ?? String()
     }
     
-    var averagePrice: String {
-        guard let averagePrice = self.property.averagePrice else { return String() }
+    var averagePrice: LocalizedStringResource {
+        guard let averagePrice = self.property.averagePrice else { return LocalizedStringResource(stringLiteral: String()) }
         let number = NSNumber(value: averagePrice)
+        let price = Self.currencyFormatter.string(from: number) ?? String()
         
-        return "Average price: \(Self.currencyFormatter.string(from: number) ?? String())"
+        return LocalizedStringResource("\(price) average price")
     }
     
-    var ratingFormatted: String {
-        "Rating: \(self.property.ratingFormatted ?? String())"
+    var ratingFormatted: LocalizedStringResource {
+        LocalizedStringResource("\(self.property.ratingFormatted ?? String()) rating")
     }
     
     @MainActor

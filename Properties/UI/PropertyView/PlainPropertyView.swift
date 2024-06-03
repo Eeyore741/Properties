@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlainPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
     
-    @ObservedObject
+    @StateObject
     var viewModel: ViewModel
     
     var body: some View {
@@ -17,7 +17,7 @@ struct PlainPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
             Image(uiImage: viewModel.image)
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: 400)
+                .frame(maxWidth: .infinity, maxHeight: 300)
                 .clipped()
                 .task {
                     await self.viewModel.fetchImage()
@@ -45,6 +45,14 @@ struct PlainPropertyView<ViewModel>: View where ViewModel: PropertyViewModel {
 }
 
 #Preview {
-    let viewModel = DemoPropertyViewModel()
-    return PlainPropertyView(viewModel: viewModel)
+    List {
+        let viewModel = RemotePropertyViewModel(
+            property: DemoPropertiesProvider().getLocalPropertyWithType(.plain),
+            placeholderImage: .demoPlaceholder,
+            errorImage: .demoError,
+            imageProvider: DemoImageProvider(mode: .successBundled)
+        )
+        PlainPropertyView(viewModel: viewModel)
+    }
+    .listStyle(PlainListStyle())
 }
