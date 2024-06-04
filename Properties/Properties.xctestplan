@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "C5F77D26-685A-4137-A725-0038E3E46D19",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "isDemo",
+        "enabled" : false
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Properties.xcodeproj",
+      "identifier" : "95B38FC32BF8F98300F51ACB",
+      "name" : "Properties"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Properties.xcodeproj",
+        "identifier" : "95B38FD32BF8F98400F51ACB",
+        "name" : "PropertiesTests"
+      }
+    }
+  ],
+  "version" : 1
+}

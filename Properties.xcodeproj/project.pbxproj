@@ -92,6 +92,7 @@
 		956B651F2BF92F77004C5945 /* PropertiesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesListViewModel.swift; sourceTree = "<group>"; };
 		956B65212BFA789E004C5945 /* PastebinPropertyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastebinPropertyItemList.swift; sourceTree = "<group>"; };
 		956B65232BFA7DF7004C5945 /* PlainPropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainPropertyView.swift; sourceTree = "<group>"; };
+		957F43242C0F36A7007BF3F7 /* Properties.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Properties.xctestplan; sourceTree = "<group>"; };
 		95A8B0012BFD335F00FF9E40 /* PropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewModel.swift; sourceTree = "<group>"; };
 		95A8B04E2C022E4E00FF9E40 /* PropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyType.swift; sourceTree = "<group>"; };
 		95A8B0512C022EF000FF9E40 /* DemoPropertiesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPropertiesProvider.swift; sourceTree = "<group>"; };
