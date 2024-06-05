@@ -8,9 +8,9 @@
 import SwiftUI
 
 /// View type displayin list of properties.
-struct PropertiesListView<ViewModel>: View where ViewModel: PropertiesListViewModel{
+struct PropertiesListView<ViewModel>: View where ViewModel: PropertiesListViewModel {
 
-    @ObservedObject 
+    @StateObject
     var viewModel: ViewModel
     
     var body: some View {
@@ -30,7 +30,7 @@ struct PropertiesListView<ViewModel>: View where ViewModel: PropertiesListViewMo
                     }
                 }
                 .listStyle(PlainListStyle())
-                .navigationTitle(self.viewModel.localizedNavigationTitle)
+                .navigationTitle(Text(self.viewModel.localizedNavigationTitle))
             }
             .tint(.green)
         case .loading:
@@ -61,5 +61,11 @@ private extension PropertiesListView {
 }
 
 #Preview {
-    PropertiesListView(viewModel: DemoPropertiesListViewModel())
+    let viewModel = RemotePropertiesListViewModel(
+        propertiesProvider: DemoPropertiesProvider(),
+        imageProvider: DemoImageProvider(mode: .successBundled),
+        placeholderImage: .demoPlaceholder,
+        errorImage: .demoError
+    )
+    return PropertiesListView(viewModel: viewModel)
 }

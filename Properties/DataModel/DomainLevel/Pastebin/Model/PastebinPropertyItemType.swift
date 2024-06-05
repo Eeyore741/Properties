@@ -9,8 +9,11 @@ import Foundation
 
 /// Type wrapping possible cases of `PastebinPropertyItem` type.
 enum PastebinPropertyItemType: String {
+    
     case HighlightedProperty
+    
     case Property
+    
     case Area
 }
 

@@ -12,7 +12,7 @@ import SwiftUI
 /// View displaying detailed Property.
 struct PropertyDetailsView<ViewModel>: View where ViewModel: PropertyDetailsViewModel {
     
-    @ObservedObject
+    @StateObject
     var viewModel: ViewModel
     
     var body: some View {
@@ -72,6 +72,13 @@ struct PropertyDetailsView<ViewModel>: View where ViewModel: PropertyDetailsView
 }
 
 #Preview {
-    let demoViewModel = DemoPropertyDetailsViewModel()
-    return PropertyDetailsView(viewModel: demoViewModel)
+    let property = DemoPropertiesProvider().getLocalPropertyWithType(.plain)
+    let viewModel = RemotePropertyDetailsViewModel(
+        propertyID: property.id,
+        propertiesProvider: DemoPropertiesProvider(),
+        imageProvider: DemoImageProvider(mode: .successBundled),
+        placeholderImage: .demoPlaceholder,
+        errorImage: .demoError
+    )
+    return PropertyDetailsView(viewModel: viewModel)
 }
