@@ -26,7 +26,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
     func testGetListFailure() async {
         let sut0 = DemoPropertiesProvider()
         
-        sut0.mode = .fail(.decodingFailure)
+        sut0.mode = .failure(.decodingFailure)
         var result = await sut0.getList()
         
         guard 
@@ -36,7 +36,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
             return XCTFail()
         }
         
-        sut0.mode = .fail(.faultyURL)
+        sut0.mode = .failure(.faultyURL)
         result = await sut0.getList()
         
         guard
@@ -46,7 +46,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
             return XCTFail()
         }
         
-        sut0.mode = .fail(.remoteError)
+        sut0.mode = .failure(.remoteError)
         result = await sut0.getList()
         
         guard
@@ -56,7 +56,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
             return XCTFail()
         }
         
-        sut0.mode = .fail(.resourceUnavailable)
+        sut0.mode = .failure(.resourceUnavailable)
         result = await sut0.getList()
         
         guard
@@ -70,11 +70,11 @@ final class DemoPropertiesProviderTests: XCTestCase {
     func testGetPropertySuccess() async {
         let sut0 = DemoPropertiesProvider()
         
-        let result = await sut0.getPropertyWithID("any")
+        let result = await sut0.getPropertyWithID("1")
         
         switch result {
         case .success(let property):
-            XCTAssertTrue(property.id == "1234567890")
+            XCTAssertTrue(property.id == "1")
         case .failure(let error):
             XCTFail(error.localizedDescription)
         }
@@ -83,7 +83,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
     func testGetPropertyFailure() async {
         let sut0 = DemoPropertiesProvider()
         
-        sut0.mode = .fail(.decodingFailure)
+        sut0.mode = .failure(.decodingFailure)
         var result = await sut0.getPropertyWithID("any")
         
         guard
@@ -93,7 +93,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
             return XCTFail()
         }
         
-        sut0.mode = .fail(.faultyURL)
+        sut0.mode = .failure(.faultyURL)
         result = await sut0.getPropertyWithID("any")
         
         guard
@@ -103,7 +103,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
             return XCTFail()
         }
         
-        sut0.mode = .fail(.remoteError)
+        sut0.mode = .failure(.remoteError)
         result = await sut0.getPropertyWithID("any")
         
         guard
@@ -113,7 +113,7 @@ final class DemoPropertiesProviderTests: XCTestCase {
             return XCTFail()
         }
         
-        sut0.mode = .fail(.resourceUnavailable)
+        sut0.mode = .failure(.resourceUnavailable)
         result = await sut0.getPropertyWithID("any")
         
         guard

@@ -78,7 +78,7 @@ final class RemotePropertyDetailsViewModelTests: XCTestCase {
         let errorImage = UIImage.demoError
         let imageProvider = MockImageProvider()
         imageProvider.onGetImageWithURL = { _ in
-            UIImage.demoProperty
+            UIImage.demoProperty1
         }
         let propertiesProvider = MockPropertiesProvider()
         propertiesProvider.onGetPropertyWithID = { url in
@@ -96,20 +96,20 @@ final class RemotePropertyDetailsViewModelTests: XCTestCase {
         await sut.fetchProperty()
         
         XCTAssertEqual(sut.state, .presenting)
-        XCTAssertEqual(sut.image, UIImage.demoProperty)
+        XCTAssertEqual(sut.image, UIImage.demoProperty1)
         XCTAssertEqual(sut.streetAddress, "streetAddress")
         XCTAssertEqual(sut.municipalityArea, "area, municipality")
         XCTAssertEqual(sut.askingPrice, "1 SEK")
         XCTAssertEqual(sut.description, "description")
-        XCTAssertEqual(sut.localizedLivingAreaHeader, "Living area:")
+        XCTAssertEqual(sut.localizedLivingAreaHeader.key, "LivingArea")
         XCTAssertEqual(sut.livingAreaValue, "4 m²")
-        XCTAssertEqual(sut.localizedNumberOfRoomsHeader, "Number of rooms: ")
+        XCTAssertEqual(sut.localizedNumberOfRoomsHeader.key, "NumberOfRooms")
         XCTAssertEqual(sut.numberOfRoomsValue, "5")
-        XCTAssertEqual(sut.localizedPatioHeader, "Patio: ")
+        XCTAssertEqual(sut.localizedPatioHeader.key, "Patio")
         XCTAssertEqual(sut.patioValue, "YES")
-        XCTAssertEqual(sut.localizedDaysSincePublishHeader, "Days since publish: ")
+        XCTAssertEqual(sut.localizedDaysSincePublishHeader.key, "DaysSincePublish")
         XCTAssertEqual(sut.daysSincePublishValue, "3")
-        XCTAssertEqual(sut.localizedErrorMessage, "Loading error")
+        XCTAssertEqual(sut.localizedErrorMessage.key, "LoadingError")
     }
 }
 

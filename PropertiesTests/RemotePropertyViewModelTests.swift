@@ -23,10 +23,10 @@ final class RemotePropertyViewModelTests: XCTestCase {
         XCTAssertEqual(sut.askingPrice, "1 SEK")
         XCTAssertEqual(sut.municipalityArea, "area, municipality")
         XCTAssertEqual(sut.area, "area")
-        XCTAssertEqual(sut.rooms, "5 rooms")
+        XCTAssertEqual(sut.rooms.key, "%lld rooms")
         XCTAssertEqual(sut.streetAddress, "streetAddress")
-        XCTAssertEqual(sut.ratingFormatted, "Rating: 4/5")
-        XCTAssertEqual(sut.averagePrice, "Average price: 6 SEK")
+        XCTAssertEqual(sut.ratingFormatted.key, "%@ rating")
+        XCTAssertEqual(sut.averagePrice.key, "%@ average price")
         XCTAssertEqual(sut.image, UIImage.demoPlaceholder)
     }
     
@@ -66,7 +66,7 @@ final class RemotePropertyViewModelTests: XCTestCase {
     func testFetchImageSuccess() async {
         let mockImageProvider = MockImageProvider()
         mockImageProvider.onGetImageWithURL = { _ in
-            return UIImage.demoProperty
+            return UIImage.demoProperty1
         }
         
         let sut = RemotePropertyViewModel(
@@ -77,7 +77,7 @@ final class RemotePropertyViewModelTests: XCTestCase {
         )
         
         await sut.fetchImage()
-        XCTAssertEqual(sut.image, UIImage.demoProperty)
+        XCTAssertEqual(sut.image, UIImage.demoProperty1)
     }
 }
 

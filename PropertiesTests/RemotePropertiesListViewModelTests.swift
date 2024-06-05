@@ -40,8 +40,8 @@ final class RemotePropertiesListViewModelTests: XCTestCase {
         )
         
         XCTAssertEqual(sut.state, .loading)
-        XCTAssertEqual(sut.localizedNavigationTitle, "Properties")
-        XCTAssertEqual(sut.localizedErrorMessage, "Properties list error")
+        XCTAssertEqual(sut.localizedNavigationTitle.key, "PropertiesListHeader")
+        XCTAssertEqual(sut.localizedErrorMessage.key, "LoadingError")
         XCTAssertTrue(sut.items.isEmpty)
     }
     
