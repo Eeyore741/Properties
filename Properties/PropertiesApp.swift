@@ -13,20 +13,20 @@ struct PropertiesApp: App {
     var body: some Scene {
         
         WindowGroup {
-            
             if Self.RunOptions.isDemo {
-                let viewModel = DemoPropertiesListViewModel()
+                let viewModel = RemotePropertiesListViewModel(
+                    propertiesProvider: DemoPropertiesProvider(),
+                    imageProvider: DemoImageProvider(mode: .successBundled),
+                    placeholderImage: .demoPlaceholder,
+                    errorImage: .demoError
+                )
                 PropertiesListView(viewModel: viewModel)
             } else {
-                let propertiesProvider = PastebinPropertiesProvider()
-                let imageProvider = RemoteImageProvider()
-                let placeholderImage = UIImage.demoPlaceholder
-                let errorImage = UIImage.demoError
                 let viewModel = RemotePropertiesListViewModel(
-                    propertiesProvider: propertiesProvider,
-                    imageProvider: imageProvider,
-                    placeholderImage: placeholderImage,
-                    errorImage: errorImage
+                    propertiesProvider: PastebinPropertiesProvider(),
+                    imageProvider: RemoteImageProvider(),
+                    placeholderImage: .demoPlaceholder,
+                    errorImage: .demoError
                 )
                 PropertiesListView(viewModel: viewModel)
             }
