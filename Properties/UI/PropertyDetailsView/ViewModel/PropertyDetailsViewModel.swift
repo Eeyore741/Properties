@@ -28,31 +28,31 @@ protocol PropertyDetailsViewModel: ObservableObject {
     var description: String { get }
     
     /// Living area static header, usually to be localized.
-    var localizedLivingAreaHeader: String { get }
+    var localizedLivingAreaHeader: LocalizedStringResource { get }
     
     /// Living area value.
     var livingAreaValue: String { get }
     
     /// Number of rooms static header, usually to be localized.
-    var localizedNumberOfRoomsHeader: String { get }
+    var localizedNumberOfRoomsHeader: LocalizedStringResource { get }
     
     /// Number of rooms value.
     var numberOfRoomsValue: String { get }
     
     /// Patio access static header, usually to be localized.
-    var localizedPatioHeader: String { get }
+    var localizedPatioHeader: LocalizedStringResource { get }
     
     /// Patio access value.
     var patioValue: String { get }
     
     /// Days since property was published static header, usually to be localized.
-    var localizedDaysSincePublishHeader: String { get }
+    var localizedDaysSincePublishHeader: LocalizedStringResource { get }
     
     /// Days since property was published value.
     var daysSincePublishValue: String { get }
     
     /// Displayed error message on fetch error.
-    var localizedErrorMessage: String { get }
+    var localizedErrorMessage: LocalizedStringResource { get }
     
     /// Function expected to be called on UI display.
     func fetchProperty() async

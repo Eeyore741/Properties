@@ -20,10 +20,10 @@ protocol PropertiesListViewModel: ObservableObject {
     var state: PropertyDetailsViewModelState { get }
     
     /// Title to be displayed on top navigation stack, usually to be localized.
-    var localizedNavigationTitle: String { get }
+    var localizedNavigationTitle: LocalizedStringResource { get }
     
     /// Displayed error message on fetch error.
-    var localizedErrorMessage: String { get }
+    var localizedErrorMessage: LocalizedStringResource { get }
     
     /// List of `ItemViewModel` to be displayed.
     var items: [ItemViewModel] { get }

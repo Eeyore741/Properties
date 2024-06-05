@@ -102,7 +102,7 @@ extension RemotePropertyDetailsViewModel: PropertyDetailsViewModel {
     
     var description: String { self.property?.description ?? String() }
     
-    var localizedLivingAreaHeader: String { "Living area:" }
+    var localizedLivingAreaHeader: LocalizedStringResource { LocalizedStringResource(stringLiteral: "LivingArea") }
     
     var livingAreaValue: String {
         guard let property = self.property else { return String() }
@@ -116,7 +116,7 @@ extension RemotePropertyDetailsViewModel: PropertyDetailsViewModel {
         }
     }
     
-    var localizedNumberOfRoomsHeader: String { "Number of rooms: " }
+    var localizedNumberOfRoomsHeader: LocalizedStringResource { "NumberOfRooms" }
     
     var numberOfRoomsValue: String {
         guard let property = self.property else { return String() }
@@ -131,15 +131,15 @@ extension RemotePropertyDetailsViewModel: PropertyDetailsViewModel {
         }
     }
     
-    var localizedPatioHeader: String { "Patio: " }
+    var localizedPatioHeader: LocalizedStringResource { "Patio" }
     
     var patioValue: String { self.property?.patio ?? String() }
     
-    var localizedDaysSincePublishHeader: String { "Days since publish: " }
+    var localizedDaysSincePublishHeader: LocalizedStringResource { "DaysSincePublish" }
     
     var daysSincePublishValue: String { "\(self.property?.daysSincePublish ?? 0)"  }
     
-    var localizedErrorMessage: String { "Loading error" }
+    var localizedErrorMessage: LocalizedStringResource { "LoadingError" }
     
     @MainActor
     func fetchProperty() async {

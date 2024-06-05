@@ -13,8 +13,8 @@ final class RemotePropertiesListViewModel: PropertiesListViewModel {
     typealias ItemViewModel = RemotePropertyViewModel
     typealias ItemDetailViewModel = RemotePropertyDetailsViewModel
     
-    var localizedNavigationTitle: String = "Properties"
-    var localizedErrorMessage: String { "Properties list error" }
+    var localizedNavigationTitle: LocalizedStringResource { "PropertiesListHeader" }
+    var localizedErrorMessage: LocalizedStringResource { "LoadingError" }
     
     // DI
     private let propertiesProvider: any PropertiesProvider
